@@ -6,7 +6,7 @@
 /*   By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 14:14:47 by jadithya          #+#    #+#             */
-/*   Updated: 2022/06/29 23:18:03 by jadithya         ###   ########.fr       */
+/*   Updated: 2022/06/30 21:34:19 by jadithya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ static int	ft_flag(char c)
 	return (0);
 }
 
-static int	ft_flagcheck(char *s, int *i)
+static char	*ft_flagcheck(const char *s, int *i)
 {
 	char	*flags;
 
 	flags = ft_strdup("000000");
-	while (ft_flag(s[*i]))
+	while (ft_flag((char) s[*i]))
 	{
 		if (s[*i] == '-')
 			flags[0] = '1';
@@ -45,25 +45,28 @@ static int	ft_flagcheck(char *s, int *i)
 	return (flags);
 }
 
-static void	ft_actualprint(char *s, int *i, char *flags, va_list ap)
+static void	ft_actualprint(const char *s, int *i, char *flags, va_list ap, int *count)
 {
-	flags = ft_flagcheck((s + *i), &i);
+	//flags = ft_flagcheck(s, i);
 	if (s[*i] == 'c')
-		ft_printchr((char) va_arg(ap, char), flags);
+		ft_printchr(va_arg(ap, int), flags, count);
 	else if (s[*i] == 's')
-		ft_printstr((char *) va_arg(ap, char *), flags);
-	else if (s[*i] == 'p')
-		ft_printptrhex(va_arg(ap, void *), flags);
+		ft_printstr(va_arg(ap, char *), flags, count);
+	//else if (s[*i] == 'p')
+	//	ft_printptrhex(va_arg(ap, void *), flags, count);
 	else if (s[*i] == 'd' || s[*i] == 'i')
-		ft_printnum((int) va_arg(ap, int), flags);
+		ft_printnum(va_arg(ap, int), flags, count);
 	else if (s[*i] == 'x')
-		ft_printhexlow((unsigned int) va_arg(ap, unsigned int), flags);
+		ft_printhexlow(va_arg(ap, unsigned int), flags, count);
 	else if (s[*i] == 'X')
-		ft_printhexhigh((unsigned int) va_arg(ap, unsigned int), flags);
+		ft_printhexhigh(va_arg(ap, unsigned int), flags, count);
 	else if (s[*i] == 'u')
-		ft_printunsint((unsigned int) va_arg(ap, unsigned int), flags);
+		ft_printunsint(va_arg(ap, unsigned int), flags, count);
 	else if (s[*i] == '%')
+	{
 		write(1, "%", 1);
+		count++;
+	}
 }
 
 int	ft_printf(const char *s, ...)
@@ -71,17 +74,26 @@ int	ft_printf(const char *s, ...)
 	va_list	ap;
 	int		i;
 	char	*flags;
+	int		count;
 
 	i = 0;
+	count = 0;
+	va_start(ap, s);
 	while (s[i] != '\0')
 	{
 		if (s[i] == '%')
-			ft_actualprint(s, &i, flags, ap);
+		{
+			i++;
+			ft_actualprint(s, &i, flags, ap, &count);
+			//free (flags);
+		}
 		else
+		{
 			write(1, &s[i], 1);
+			count++;
+		}
 		i++;
 	}
-	//free (flags);
 	va_end(ap);
-	return ((int) ft_strlen(s));
+	return (count);
 }
