@@ -6,7 +6,7 @@
 /*   By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 14:14:47 by jadithya          #+#    #+#             */
-/*   Updated: 2022/07/02 15:38:47 by jadithya         ###   ########.fr       */
+/*   Updated: 2022/07/02 19:18:11 by jadithya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ static int	ft_flag(char c)
 	if (c == '-' || c == '0' || c == '.')
 		return (1);
 	if (c == '#' || c == ' ' || c == '+')
+		return (1);
+	if (ft_isdigit(c))
 		return (1);
 	return (0);
 }
@@ -30,7 +32,7 @@ static char	*ft_flagcheck(const char *s, int *i)
 	{
 		if (s[*i] == '-')
 			flags[0] = '1';
-		else if (s[*i] == '0')
+		else if (s[*i] == '0' && !ft_isdigit(s[*i - 1]))
 			flags[1] = '1';
 		else if (s[*i] == '.')
 			flags[2] = '1';
@@ -52,19 +54,19 @@ static int	ft_actualprint(const char *s, int *i, char *flags, va_list ap)
 	count = 0;
 	flags = ft_flagcheck(s, i);
 	if (s[*i] == 'c')
-		ft_printchr(va_arg(ap, int), flags, &count);
+		ft_printchr(va_arg(ap, int), flags, &count, (char *) &s[*i]);
 	else if (s[*i] == 's')
-		ft_printstr(va_arg(ap, char *), flags, &count);
+		ft_printstr(va_arg(ap, char *), flags, &count, (char *) &s[*i]);
 	else if (s[*i] == 'p')
 		ft_printptrhex(va_arg(ap, void *), flags, &count);
 	else if (s[*i] == 'd' || s[*i] == 'i')
-		ft_printnum(va_arg(ap, int), flags, &count);
+		ft_printnum(va_arg(ap, int), flags, &count, (char *) &s[*i]);
 	else if (s[*i] == 'x')
 		ft_printhexlow(va_arg(ap, unsigned int), flags, &count);
 	else if (s[*i] == 'X')
 		ft_printhexhigh(va_arg(ap, unsigned int), flags, &count);
 	else if (s[*i] == 'u')
-		ft_printunsint(va_arg(ap, unsigned int), flags, &count);
+		ft_printunsint(va_arg(ap, unsigned int), flags, &count, (char *) &s[*i]);
 	else if (s[*i] == '%')
 	{
 		write(1, "%", 1);

@@ -6,7 +6,7 @@
 /*   By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 21:56:41 by jadithya          #+#    #+#             */
-/*   Updated: 2022/06/25 23:23:44 by jadithya         ###   ########.fr       */
+/*   Updated: 2022/07/02 19:59:53 by jadithya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static int	ft_abs(int n)
 		return (n * -1);
 }
 
-char	*ft_itoa(int n)
+char	*ft_itoa(int n, char flag, int values)
 {
 	int		i;
 	int		size;
@@ -66,6 +66,9 @@ char	*ft_itoa(int n)
 		newstr[i++] = '-';
 		size--;
 	}
+	if (flag == '1')
+		while (values--)
+			write(1, "0", 1);
 	while (size--)
 		newstr[i++] = ft_abs((n / ft_power(10, size)) % 10) + 48;
 	newstr[i] = '\0';

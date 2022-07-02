@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printchr.c                                      :+:      :+:    :+:   */
+/*   ft_printspace.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/29 22:18:31 by jadithya          #+#    #+#             */
-/*   Updated: 2022/07/02 17:47:15 by jadithya         ###   ########.fr       */
+/*   Created: 2022/07/02 17:14:36 by jadithya          #+#    #+#             */
+/*   Updated: 2022/07/02 18:52:53 by jadithya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libftprintf.h"
 
-void	ft_printchr(int c, char *flags, int *count, char *add)
+void	ft_printspace(char *add, int *count, char *flags, int s)
 {
-	char	ch;
+	int	digits;
+	int	power;
 
-	ch = (char) c;
-	if (flags[0] == '0')
+	digits = 0;
+	power = 1;
+	while (ft_isdigit(*(--add)))
 	{
-		ft_printspace(add, count, flags, 1);
-		(*count)++;
+		digits += ((*add) - 48) * power;
+		power *= 10;
 	}
-	write(1, &ch, 1);
-	if (flags[0] == '1')
+	digits -= s;
+	while (digits-- > 0)
 	{
-		ft_printspace(add, count, flags, 1);
+		write(1, " ", 1);
 		(*count)++;
 	}
 }
