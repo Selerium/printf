@@ -6,7 +6,7 @@
 /*   By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 14:15:04 by jadithya          #+#    #+#             */
-/*   Updated: 2022/06/30 21:35:38 by jadithya         ###   ########.fr       */
+/*   Updated: 2022/06/30 21:58:57 by jadithya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include<unistd.h>
 # include<stdarg.h>
 # include<stdio.h>
+# include<stdbool.h>
 # include"libft/libft.h"
 
 int		ft_power(int num, int power);
