@@ -6,7 +6,7 @@
 #    By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/02 22:13:13 by jadithya          #+#    #+#              #
-#    Updated: 2022/07/02 22:17:39 by jadithya         ###   ########.fr        #
+#    Updated: 2022/07/02 22:43:04 by jadithya         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,18 +34,21 @@ DEPS = libftprintf.h\
 
 OBJS = $(SRCS:.c=.o)
 
+LIB = libft/libft.a
+
 %.o: %.c
 	$(CC) -c -o $@ $< $(CFLAGS)
 
 $(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+	make -C libft
+	ar rcs $(NAME) $(OBJS) libft/*.o
 
 all: $(NAME)
 
 clean:
-	rm -f $(OBJS)
+	rm -f $(OBJS) libft/*.o
 
-fclean:
+fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
