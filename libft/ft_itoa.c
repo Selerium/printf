@@ -6,7 +6,7 @@
 /*   By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 21:56:41 by jadithya          #+#    #+#             */
-/*   Updated: 2022/07/02 19:59:53 by jadithya         ###   ########.fr       */
+/*   Updated: 2022/07/02 22:45:00 by jadithya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ char	*ft_itoa(int n, char flag, int values)
 		size--;
 	}
 	if (flag == '1')
-		while (values--)
+		while (values-- > 0)
 			write(1, "0", 1);
 	while (size--)
 		newstr[i++] = ft_abs((n / ft_power(10, size)) % 10) + 48;
