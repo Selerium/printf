@@ -6,7 +6,7 @@
 /*   By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 14:15:04 by jadithya          #+#    #+#             */
-/*   Updated: 2022/07/02 20:40:21 by jadithya         ###   ########.fr       */
+/*   Updated: 2022/07/02 22:09:35 by jadithya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 
 int		ft_power(int num, int power);
 int		ft_digits(unsigned int n);
-void	ft_printspace(char *add, int *count, char *flags, int s);
-void	ft_printzeros(char *add, int *count, char *flags, int s);
+void	ft_printspace(char *add, int *count, int s);
+void	ft_printzeros(char *add, int *count, int s);
 void	ft_precisionprint(char *str, int *count, char *add, char *flags);
 int		ft_printf(const char *s, ...);
 void	ft_printchr(int c, char *flags, int *count, char *add);

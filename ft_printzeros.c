@@ -6,17 +6,16 @@
 /*   By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 17:14:36 by jadithya          #+#    #+#             */
-/*   Updated: 2022/07/02 20:00:44 by jadithya         ###   ########.fr       */
+/*   Updated: 2022/07/02 22:09:36 by jadithya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libftprintf.h"
 
-void	ft_printzeros(char *add, int *count, char *flags, int s)
+void	ft_printzeros(char *add, int *count, int s)
 {
 	int	digits;
 	int	power;
-	int	x;
 
 	digits = 0;
 	power = 1;

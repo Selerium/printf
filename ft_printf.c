@@ -6,7 +6,7 @@
 /*   By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 14:14:47 by jadithya          #+#    #+#             */
-/*   Updated: 2022/07/02 19:18:11 by jadithya         ###   ########.fr       */
+/*   Updated: 2022/07/02 21:27:46 by jadithya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ int	ft_printf(const char *s, ...)
 
 	i = 0;
 	count = 0;
+	flags = NULL;
 	va_start(ap, s);
 	while (s[i] != '\0')
 	{

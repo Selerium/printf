@@ -6,13 +6,13 @@
 /*   By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 17:14:36 by jadithya          #+#    #+#             */
-/*   Updated: 2022/07/02 18:52:53 by jadithya         ###   ########.fr       */
+/*   Updated: 2022/07/02 22:08:11 by jadithya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libftprintf.h"
 
-void	ft_printspace(char *add, int *count, char *flags, int s)
+void	ft_printspace(char *add, int *count, int s)
 {
 	int	digits;
 	int	power;
