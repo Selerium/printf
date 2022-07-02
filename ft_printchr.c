@@ -6,17 +6,26 @@
 /*   By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 22:18:31 by jadithya          #+#    #+#             */
-/*   Updated: 2022/06/30 21:52:13 by jadithya         ###   ########.fr       */
+/*   Updated: 2022/07/02 17:27:15 by jadithya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libftprintf.h"
 
-void	ft_printchr(int c, char *flags, int *count)
+void	ft_printchr(int c, char *flags, int *count, char *add)
 {
 	char	ch;
 
 	ch = (char) c;
-	(*count)++;
+	if (flags[0] == '0')
+	{
+		ft_printspace(add, count, flags, " \0");
+		(*count)++;
+	}
 	write(1, &ch, 1);
+	if (flags[0] == '1')
+	{
+		ft_printspace(add, count, flags, " \0");
+		(*count)++;
+	}
 }
