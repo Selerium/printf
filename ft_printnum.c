@@ -6,7 +6,7 @@
 /*   By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 22:30:39 by jadithya          #+#    #+#             */
-/*   Updated: 2022/07/02 20:42:31 by jadithya         ###   ########.fr       */
+/*   Updated: 2022/07/02 22:45:43 by jadithya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_printnum(int n, char *flags, int *count, char *add)
 		write(1, "+", 1);
 		(*count)++;
 	}
-	str = ft_itoa(n);
+	str = ft_itoa(n, flags[2], 0);
 	if (flags[2] == '0')
 		ft_printstr(str, flags, count, add);
 	else
