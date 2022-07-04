@@ -6,7 +6,7 @@
 /*   By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 14:14:47 by jadithya          #+#    #+#             */
-/*   Updated: 2022/07/02 21:27:46 by jadithya         ###   ########.fr       */
+/*   Updated: 2022/07/04 21:01:17 by jadithya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,13 +58,13 @@ static int	ft_actualprint(const char *s, int *i, char *flags, va_list ap)
 	else if (s[*i] == 's')
 		ft_printstr(va_arg(ap, char *), flags, &count, (char *) &s[*i]);
 	else if (s[*i] == 'p')
-		ft_printptrhex(va_arg(ap, void *), flags, &count);
+		ft_printptrhex(va_arg(ap, void *), flags, &count, (char *) &s[*i]);
 	else if (s[*i] == 'd' || s[*i] == 'i')
 		ft_printnum(va_arg(ap, int), flags, &count, (char *) &s[*i]);
 	else if (s[*i] == 'x')
-		ft_printhexlow(va_arg(ap, unsigned int), flags, &count);
+		ft_printhexlow(va_arg(ap, unsigned int), flags, &count, (char *) &s[*i]);
 	else if (s[*i] == 'X')
-		ft_printhexhigh(va_arg(ap, unsigned int), flags, &count);
+		ft_printhexhigh(va_arg(ap, unsigned int), flags, &count, (char *) &s[*i]);
 	else if (s[*i] == 'u')
 		ft_printunsint(va_arg(ap, unsigned int), flags, &count, (char *) &s[*i]);
 	else if (s[*i] == '%')

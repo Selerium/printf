@@ -6,7 +6,7 @@
 #    By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/02 22:13:13 by jadithya          #+#    #+#              #
-#    Updated: 2022/07/02 22:43:04 by jadithya         ###   ########.fr        #
+#    Updated: 2022/07/04 21:33:47 by jadithya         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ SRCS = ft_digits.c\
 		ft_printchr.c\
 		ft_printf.c\
 		ft_printhex.c\
+		ft_printhex2.c\
 		ft_printnum.c\
 		ft_printptrhex.c\
 		ft_printspace.c\
@@ -43,7 +44,9 @@ $(NAME): $(OBJS)
 	make -C libft
 	ar rcs $(NAME) $(OBJS) libft/*.o
 
-all: $(NAME)
+bonus: 
+
+all: $(NAME) bonus
 
 clean:
 	rm -f $(OBJS) libft/*.o
