@@ -6,7 +6,7 @@
 /*   By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 20:30:58 by jadithya          #+#    #+#             */
-/*   Updated: 2022/07/04 22:02:18 by jadithya         ###   ########.fr       */
+/*   Updated: 2022/07/06 22:01:29 by jadithya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -165,8 +165,8 @@ int	main()
 	b = printf(" %.8u %.9u %.10u %.11u %.12u %.13u %.14u|\n", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42);
 	printf("%d vs %d\n", a, b);
 	ft_check(a == b);
-	a = ft_printf(" %.2x|\n", 1);
-	b = printf(" %.2x|\n", 1);
+	a = ft_printf("|%.5d|\n", -1234);
+	b = printf("|%.5d|\n", -1234);
 	printf("%d vs %d\n", a, b);
 	ft_check(a == b);
 	return (0);

@@ -6,13 +6,14 @@
 #    By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/02 22:13:13 by jadithya          #+#    #+#              #
-#    Updated: 2022/07/04 21:33:47 by jadithya         ###   ########.fr        #
+#    Updated: 2022/07/06 16:42:50 by jadithya         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
 SRCS = ft_digits.c\
+		ft_hexdigits.c\
 		ft_power.c\
 		ft_precisionprint.c\
 		ft_printchr.c\

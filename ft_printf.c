@@ -6,13 +6,13 @@
 /*   By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 14:14:47 by jadithya          #+#    #+#             */
-/*   Updated: 2022/07/04 21:01:17 by jadithya         ###   ########.fr       */
+/*   Updated: 2022/07/07 15:53:08 by jadithya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libftprintf.h"
 
-static int	ft_flag(char c)
+int	ft_flag(char c)
 {
 	if (c == '-' || c == '0' || c == '.')
 		return (1);
@@ -27,20 +27,20 @@ static char	*ft_flagcheck(const char *s, int *i)
 {
 	char	*flags;
 
-	flags = ft_strdup("000000");
+	flags = ft_strdup("0000000");
 	while (ft_flag((char) s[*i]))
 	{
-		if (s[*i] == '-')
+		if ((char) s[*i] == '-')
 			flags[0] = '1';
-		else if (s[*i] == '0' && !ft_isdigit(s[*i - 1]))
+		if ((char) s[*i] == '0' && !ft_isdigit((char) s[*i - 1]))
 			flags[1] = '1';
-		else if (s[*i] == '.')
+		if ((char) s[*i] == '.')
 			flags[2] = '1';
-		else if (s[*i] == '#')
+		if ((char) s[*i] == '#')
 			flags[3] = '1';
-		else if (s[*i] == ' ')
+		if ((char) s[*i] == ' ')
 			flags[4] = '1';
-		else if (s[*i] == '+')
+		if ((char) s[*i] == '+')
 			flags[5] = '1';
 		(*i)++;
 	}
@@ -72,7 +72,7 @@ static int	ft_actualprint(const char *s, int *i, char *flags, va_list ap)
 		write(1, "%", 1);
 		count++;
 	}
-	free (flags);
+	free(flags);
 	return (count);
 }
 
@@ -104,3 +104,17 @@ int	ft_printf(const char *s, ...)
 	va_end(ap);
 	return (count);
 }
+
+//+⡴⠑⡄⠀⠀⠀⠀⠀⠀⠀ ⣀⣀⣤⣤⣤⣀⡀
+//+⠸⡇⠀⠿⡀⠀⠀⠀⣀⡴⢿⣿⣿⣿⣿⣿⣿⣿⣷⣦⡀
+//+⠀⠀⠀⠀⠑⢄⣠⠾⠁⣀⣄⡈⠙⣿⣿⣿⣿⣿⣿⣿⣿⣆
+//+⠀⠀⠀⠀⢀⡀⠁⠀⠀⠈⠙⠛⠂⠈⣿⣿⣿⣿⣿⠿⡿⢿⣆
+//+⠀⠀⠀⢀⡾⣁⣀⠀⠴⠂⠙⣗⡀⠀⢻⣿⣿⠭⢤⣴⣦⣤⣹⠀⠀⠀⢀⢴⣶⣆
+//+⠀⠀⢀⣾⣿⣿⣿⣷⣮⣽⣾⣿⣥⣴⣿⣿⡿⢂⠔⢚⡿⢿⣿⣦⣴⣾⠸⣼⡿
+//+⠀⢀⡞⠁⠙⠻⠿⠟⠉⠀⠛⢹⣿⣿⣿⣿⣿⣌⢤⣼⣿⣾⣿⡟⠉
+//+⠀⣾⣷⣶⠇⠀⠀⣤⣄⣀⡀⠈⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇
+//+⠀⠉⠈⠉⠀⠀⢦⡈⢻⣿⣿⣿⣶⣶⣶⣶⣤⣽⡹⣿⣿⣿⣿⡇
+//+⠀⠀⠀⠀⠀⠀⠀⠉⠲⣽⡻⢿⣿⣿⣿⣿⣿⣿⣷⣜⣿⣿⣿⡇
+//+⠀⠀ ⠀⠀⠀⠀⠀⢸⣿⣿⣷⣶⣮⣭⣽⣿⣿⣿⣿⣿⣿⣿⠇
+//+⠀⠀⠀⠀⠀⠀⣀⣀⣈⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇
+//+⠀⠀⠀⠀⠀⠀⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠃
