@@ -6,7 +6,7 @@
 /*   By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 22:31:53 by jadithya          #+#    #+#             */
-/*   Updated: 2022/07/06 20:43:55 by jadithya         ###   ########.fr       */
+/*   Updated: 2022/07/08 20:46:14 by jadithya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ static int	printzeros(char *add, int *count, int s, char flag)
 	return (result);
 }
 
-void	ft_printunsint(unsigned long n, char *flags, int *count, char *add)
+void	ft_printunsint(unsigned long n, char *flags, int *count,
+						const char *add)
 {
 	char	ch;
 	int		i;
@@ -49,11 +50,11 @@ void	ft_printunsint(unsigned long n, char *flags, int *count, char *add)
 	i = ft_digits(n);
 	size = i--;
 	if (flags[2] == '1')
-		digits = printzeros(add, count, size, '.');
+		digits = printzeros((char *) add, count, size, '.');
 	else if (flags[1] == '1' && flags[0] == '0')
-		digits = printzeros(add, count, size, '%');
+		digits = printzeros((char *) add, count, size, '%');
 	else if (flags[0] == '0')
-		ft_printspace(add, count, size);
+		ft_printspace((char *) add, count, size);
 	while (i >= 0 && !(n == 0 && digits == 0 && flags[2] == '1'))
 	{
 		ch = (n / (ft_power(10, i))) + 48;
@@ -63,5 +64,5 @@ void	ft_printunsint(unsigned long n, char *flags, int *count, char *add)
 		i--;
 	}
 	if (flags[0] == '1')
-		ft_printspace(add, count, *count);
+		ft_printspace((char *) add, count, *count);
 }

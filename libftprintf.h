@@ -6,7 +6,7 @@
 /*   By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 14:15:04 by jadithya          #+#    #+#             */
-/*   Updated: 2022/07/07 15:48:00 by jadithya         ###   ########.fr       */
+/*   Updated: 2022/07/08 20:47:42 by jadithya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,11 @@ int		ft_printf(const char *s, ...);
 void	ft_printchr(int c, char *flags, int *count, char *add);
 void	ft_printstr(char *s, char *flags, int *count, char *add);
 void	ft_printnum(int n, char *flags, int *count, char *add);
-void	ft_printunsint(unsigned long n, char *flags, int *count, char *add);
-void	ft_printhexlow(unsigned int n, char *flags, int *count, char *add);
-void	ft_printhexhigh(unsigned int n, char *flags, int *count, char *add);
+void	ft_printunsint(unsigned long n, char *flags, int *count,
+			const char *add);
+void	ft_printhexlow(unsigned int n, char *flags, int *count,
+			const char *add);
+void	ft_printhexhigh(unsigned int n, char *flags, int *count,
+			const char *add);
 void	ft_printptrhex(void *add, char *flags, int *count, char *add2);
 #endif
