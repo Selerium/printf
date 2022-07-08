@@ -6,7 +6,7 @@
 /*   By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 22:47:20 by jadithya          #+#    #+#             */
-/*   Updated: 2022/07/06 20:46:26 by jadithya         ###   ########.fr       */
+/*   Updated: 2022/07/08 20:09:22 by jadithya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,15 +60,16 @@ static void	ft_rechigh(unsigned int n, int *count)
 	ft_highhex((n % 16), count);
 }
 
-void	ft_printhexhigh(unsigned int n, char *flags, int *count, char *add)
+void	ft_printhexhigh(unsigned int n, char *flags, int *count,
+							const char *add)
 {
 	int	digits;
 
 	digits = 0;
 	if (flags[2] == '1' && flags[1] == '0')
-		digits = printspace(add, count, ft_hexdigits(n), '.');
+		digits = printspace((char *) add, count, ft_hexdigits(n), '.');
 	else if (flags[0] == '0')
-		digits = printspace(add, count, ft_hexdigits(n), '%');
+		digits = printspace((char *) add, count, ft_hexdigits(n), '%');
 	if (flags[3] == '1' && n != 0)
 	{
 		write(1, "0X", 2);
@@ -76,9 +77,9 @@ void	ft_printhexhigh(unsigned int n, char *flags, int *count, char *add)
 		flags[3] = '0';
 	}
 	if (flags[2] == '1' && flags[1] == '1')
-		ft_printzeros(add, count, *count + 1);
+		ft_printzeros((char *) add, count, *count + 1, flags);
 	if (!(n == 0 && digits == 0 && flags[2] == '1'))
 		ft_rechigh(n, count);
 	if (flags[0] == '1')
-		ft_printspace(add, count, *count);
+		ft_printspace((char *) add, count, *count);
 }
